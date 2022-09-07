@@ -1,5 +1,8 @@
 import React from "react"
 import contactImage from '../assets/images/contact-img.svg'
+import {useState} from 'react';
+import {Row, Col, Container} from 'react-bootstrap';
+
 
 export const ContactForm = () => {
     const fromInitialDetails = {
@@ -21,12 +24,28 @@ export const ContactForm = () => {
         })
     }
 
-    const handleSubmit = () => {
-        
+    const handleSubmit = async(e) => {
+        e.preventDefault();
+        setButtonText('Sending...');
+        let response = await fetch('https://localhost:3000/contact', {
+            method: 'POST',
+            headers: {
+                "Content-Type": 'Application/json;charset=utf-8'
+            },
+            body: JSON.stringify(formDetails)
+        });
+        setButtonText('Send');
+        let result = response.json();
+        setFormDetails(fromInitialDetails);
+        if (result.code === 200) {
+            setStatus({success: true, message: "Message sent successfuly"})
+        } else {
+            setStatus({success: false, message: "Something went wrong... please try again"});
+        }
     }
 
     return (
-        <section>
+        <section className="contact" id="connect">
             <Container>
                 <Row className = 'align-items-center'>
                     <Col md={6}>
@@ -50,7 +69,7 @@ export const ContactForm = () => {
                                     <input type="text" value={formDetails.phone} placeholder="Phone Num" onChange={e => onFormUpdate('phone', e.target.value)}></input>
                                 </Col>
                                 <Col>
-                                    <textarea row="6" value={formDetails.n=message} placeholder="Message" onChange={e => onFormUpdate('message', e.target.value)}></textarea>
+                                    <textarea row="6" value={formDetails.message} placeholder="Message" onChange={e => onFormUpdate('message', e.target.value)}></textarea>
                                     <button type="submit"><span>{buttonText}</span></button>
                                 </Col>
                                 {

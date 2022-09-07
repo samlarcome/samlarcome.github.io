@@ -2,10 +2,11 @@
   --background-color: #fffffe;
   --headline: #2b2c34;
   --paragraph: #2b2c34;
-  --button-color: #6246ea;
+  --navbar-color: #6246ea;
   --button-text: #fffffe;
   --secondary-color: #d1d1e9;
   --tertiary: #e45858;
+  --button-color: var(--navbar-color);
 }
 
 @font-face {
@@ -61,11 +62,11 @@ nav.navbar {
   top: 0;
   z-index: 9999;
   transition:  0.32s ease-in-out;
-  background-color: var(--secondary-color);
+  background-color: var(--navbar-color);
 }
 nav.navbar.scrolled {
   padding: 0px 0;
-  background-color: #121212;
+  background-color: var(--navbar-color);
 }
 nav.navbar a.navbar-brand {
   width: 15%;
@@ -208,7 +209,8 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner {
   margin-top: 0;
   padding: 260px 0 100px 0;
-  background-image: url('./assets/images/banner-bg.png');
+  /* background-image: url('./assets/images/banner-bg.png'); */
+  background-color: var(--background-color);
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -230,9 +232,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   line-height: 1;
   margin-bottom: 20px;
   display: block;
+  color: var(--headline)
 }
 .banner p {
-  color: #B8B8B8;
+  color: var(--headline);
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;
@@ -279,10 +282,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .skill {
   padding: 0 0 50px 0;
   position: relative;
+  background-color:var(--background-color);
 }
 
 .skill-bx {
-  background: #121212;
+  background: var(--navbar-color);
   border-radius: 64px;
   text-align: center;
   padding: 60px 50px;
@@ -295,7 +299,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .skill p {
-  color: var(--button-color);
+  color: var(--button-text);
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;
@@ -319,15 +323,16 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .project {
   padding: 80px 0;
   position: relative;
-  background-color: black;
+  background-color: var(--background-color);
 }
 .project h2 {
 	font-size: 45px;
 	font-weight: 700;
   text-align: center;
+  color: var(--headline);
 }
 .project p {
-  color: #B8B8B8;
+  color: var(--headline);
   font-size: 18px;
   letter-spacing: 0.8px;
   line-height: 1.5em;
@@ -393,6 +398,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-radius: 30px;
   overflow: hidden;
   margin-bottom: 24px;
+  border: black 1px solid
 }
 .proj-imgbx::before {
   content: "";
@@ -441,6 +447,79 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   z-index: -4;
 }
 
+/* CONTACT FORM */
+.contact {
+  /* background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%); */
+  background-color: var(--background-color);
+  padding: 60px 0 200px 0;
+}
+.contact img {
+  width: 92%;
+}
+.contact h2 {
+	font-size: 45px;
+	font-weight: 700;
+  margin-bottom: 30px;
+  color: var(--headline);
+}
+.contact form input, .contact form textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--headline);
+  border-radius: 20px;
+  color: var(--headline);
+  margin: 0 0 8px 0;
+  padding: 18px 26px;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  transition: 0.3s ease-in-out;
+}
+.contact form input:focus, .contact form textarea:focus {
+  background: rgba(255, 255, 255, 1);
+  color: #121212;
+}
+.contact form input::placeholder, .contact form textarea::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--headline);
+}
+.contact form input:focus::placeholder, .contact form textarea:focus::placeholder {
+  color: #121212;
+  opacity: 0.8;
+}
+.contact form button {
+  font-weight: 700;
+  color: #000;
+  background-color: #fff;
+  padding: 14px 48px;
+  font-size: 18px;
+  margin-top: 25px;
+  border-radius: 0;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+.contact form button span {
+  z-index: 1;
+  position: relative;
+}
+.contact form button:hover {
+  color: #fff;
+}
+.contact form button::before {
+  content: "";
+  background: var(--button-color);
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  transition: 0.3s ease-in-out;
+}
+.contact form button:hover::before {
+  width: 100%;
+}
 
 
 /* APP CSS */

@@ -2,7 +2,7 @@ import { Container, Row, Col } from "react-bootstrap"
 import React from "react"
 import {ArrowRightCircle} from 'react-bootstrap-icons'
 import HeaderImg from '../assets/images/header-img.svg'
-import { useState, useEffect } from "react"
+import HeaderImg2 from '../assets/images/IMG_0354.jpg'
 
 export const Banner = () => {
     

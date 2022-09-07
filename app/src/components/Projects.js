@@ -28,16 +28,6 @@ export const Projects = () => {
             description: "",
             imgURL: projimg1
         },
-        {
-            title: "8 Puzzle Solver",
-            description: "",
-            imgURL: projimg2
-        },
-        {
-            title: "Closest Pair of Points",
-            description: "",
-            imgURL: projimg3
-        }
     ];
 
 
