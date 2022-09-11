@@ -83,48 +83,58 @@ nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
 nav.navbar .navbar-nav a.nav-link.navbar-link.active {
     opacity: 1;
 }
+
+.active-navbar-link {
+  color: var(--background-color) !important;
+  padding:0 25px 0 25px !important;
+}
+
 span.navbar-text {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 .social-icon {
-    display: inline-block;
-    margin-left: 14px;
+  display: inline-block;
+  margin-left: 14px;
+  
 }
 .social-icon a {
-    width: 42px;
-    height: 42px;
-    background: rgba(217, 217, 217, 0.1);
-    display: inline-flex;
-    /* Gives social icon circles */
-    border-radius: 0%;
-    margin-right: 6px;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+  width: 42px;
+  height: 42px;
+  background: var(--navbar-color);
+  display: inline-flex;
+  /* Gives social icon circles */
+  border-radius: 0%;
+  margin-right: 6px;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  /* border: 1px solid var(--background-color); */
 }
 .social-icon a::before {
     content: "";
     width: 42px;
     height: 42px;
     position: absolute;
-    background-color: #ffffff;
-    border-radius: 50%;
+    background-color: var(--headline);
+    border-radius: 20%;
     transform: scale(0);
 	transition: 0.3s ease-in-out;
 }
-.social-icon a:hover::before {
-    transform: scale(1);
+
+#gh::before {
+  /*  */
+  border-radius: 50% !important;
 }
-.social-icon a img {
-	width: 40%;
+.social-icon a:hover::before {
+  transform: scale(1);
+}
+.social-icon a svg {
+	width: 75%;
 	z-index: 1;
 	transition: 0.3s ease-in-out;
 }
-.social-icon a:hover img {
-	filter: brightness(0) saturate(100%) invert(0%) sepia(7%) saturate(98%) hue-rotate(346deg) brightness(95%) contrast(86%);
-}
+
 .navbar-text button {
   font-weight: 700;
   color: #fff;
@@ -338,7 +348,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   line-height: 1.5em;
   margin: 14px auto 30px auto;
   text-align: center;
-  width: 56%;
 }
 .project .nav.nav-pills {
   width: 72%;
@@ -446,6 +455,52 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   right: 0;
   z-index: -4;
 }
+/* MiNE */
+.project-icons {
+  width: 3em;
+  height: auto;
+  margin: 1em;
+}
+
+.card-title {
+  color: var(--navbar-color);
+}
+
+.empty-project-link-holder {
+  margin-top: 0;
+  visibility: hidden;
+}
+
+.project-link-holder {
+  margin-top: 0;
+  /* border: 1px solid black;  */
+}
+
+.project-link {
+  color: var(--background-color);
+  text-decoration: none;
+  padding: 0.25rem, 0.5rem;
+  font-size: .75rem;
+  line-height: 1.5;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+.project-link:hover {
+  color: var(--background-color);
+}
+
+.projects-gh-icon {
+  font-weight: 400;
+  text-align: center;
+  width: 1.25em;
+  display: inline-block;
+  line-height: 1;
+}
+
+.card-footer {
+  padding: 0 0 0 0 m !important;
+}
+
 
 /* CONTACT FORM */
 .contact {
@@ -453,20 +508,18 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   background-color: var(--background-color);
   padding: 60px 0 200px 0;
 }
-.contact img {
-  width: 92%;
-}
+
 .contact h2 {
 	font-size: 45px;
 	font-weight: 700;
   margin-bottom: 30px;
-  color: var(--headline);
+  color: var(--background-color);
 }
 .contact form input, .contact form textarea {
   width: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--background-color);
   border: 1px solid var(--headline);
-  border-radius: 20px;
+  /* border-radius: 20px; */
   color: var(--headline);
   margin: 0 0 8px 0;
   padding: 18px 26px;
@@ -488,37 +541,31 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #121212;
   opacity: 0.8;
 }
-.contact form button {
-  font-weight: 700;
-  color: #000;
-  background-color: #fff;
+
+#contact-submit-btn {
+  background-color: var(--background-color) !important;
   padding: 14px 48px;
   font-size: 18px;
   margin-top: 25px;
-  border-radius: 0;
   position: relative;
-  transition: 0.3s ease-in-out;
+  font-weight: 700;
+  color: var(--headline);
 }
+
+.contact form button:hover::before {
+  width: 100%;
+}
+
 .contact form button span {
   z-index: 1;
   position: relative;
 }
-.contact form button:hover {
-  color: #fff;
-}
-.contact form button::before {
-  content: "";
-  background: var(--button-color);
-  width: 0;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-  transition: 0.3s ease-in-out;
-}
-.contact form button:hover::before {
-  width: 100%;
+
+#contact-form-holder {
+  background-color: var(--navbar-color);
+  padding: 2em;
+  border: 1px solid transparent;
+  border-radius: 1.5em;
 }
 
 

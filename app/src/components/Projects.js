@@ -1,35 +1,42 @@
 import React from "react";
-import { Container, Row, Tab, Col } from "react-bootstrap";
+import { Container, Row, Col} from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
 import colorsharp2 from '../assets/images/color-sharp2.png'
-import projimg1 from '../assets/images/project-img1.png'
-import projimg2 from '../assets/images/project-img2.png'
-import projimg3 from '../assets/images/project-img3.png'
+
 
 export const Projects = () => {
     const projects = [
         {
             title: "Intern Project",
-            description: "",
-            imgURL: projimg1
+            description: "A web app to automate manual process of sourcing new locum tenen providers, improving efficiency by 90%",
+            iconURLS: [
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original-wordmark.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg"
+            ],
+            projectlink: '',
+            repo: ''
         },
         {
             title: "8 Puzzle Solver",
-            description: "",
-            imgURL: projimg2
+            description: "A program to solve the 8 puzzle problem using a modified BFS graph algorithm",
+            iconURLS: [
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+            ],
+            projectlink: 'https://github.com/samlarcome/School-Projects/tree/main/8-Puzzle',
+            repo: 'School-Projects/8-Puzzle'
         },
         {
             title: "Closest Pair of Points",
-            description: "",
-            imgURL: projimg3
-        },
-        {
-            title: "Intern Project",
-            description: "",
-            imgURL: projimg1
+            description: "Divide and conquer algorithm to find the closest pair of n points in a two-dimensional plane",
+            iconURLS: [
+                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+            ],
+            projectlink: 'https://github.com/samlarcome/School-Projects/tree/main/Closest-Points',
+            repo: 'School-Projects/Closest-Points'
         },
     ];
-
 
     return (
         <section className="project" id="project">
@@ -37,25 +44,19 @@ export const Projects = () => {
                 <Row>
                     <Col>
                         <h2>Projects</h2>
-                        <p>Temporary</p>
-                        <Tab.Container id="projects-tab" defaultActiveKey="first">
-                            <Tab.Content>
-                                <Tab.Pane eventKey="first">
-                                    <Row>
-                                        {
-                                            projects.map((project, index) => {
-                                                return (
-                                                    <ProjectCard
-                                                        key={index}
-                                                        {...project}
-                                                    />
-                                                )
-                                            })
-                                        }
-                                    </Row>
-                                </Tab.Pane>
-                            </Tab.Content>
-                        </Tab.Container>
+                        <p> </p>
+                        <Row xs={1} md={2} className="g-4">
+                            {
+                                projects.map((project, index) => {
+                                    return (
+                                        <ProjectCard
+                                            key={index}
+                                            {...project}
+                                        />
+                                    )
+                                })
+                            }
+                        </Row>
                     </Col>
                 </Row>
             </Container>
